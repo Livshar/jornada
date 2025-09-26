@@ -274,7 +274,7 @@ p{ margin:.6em 0 }
 
 #agendamento-problemas .empathy img{
   display: block;
-  width: clamp(260px, 45vw, 480px);  /* cresce até 480px, responsivo */
+  width: clamp(220px, 45vw, 380px);  /* cresce até 480px, responsivo */
   height: auto;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,.08);
