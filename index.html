@@ -24,6 +24,53 @@
     .callout{border-left:6px solid var(--brand);background:#f0f9ff;padding:12px 14px;border-radius:12px;margin:12px 0}.warn{border-left-color:#f59e0b;background:#fffbeb}.ok{border-left-color:#10b981;background:#ecfdf5}
     @media(max-width:900px){.shell{grid-template-columns:1fr}aside{position:relative}}
     @media print{header.site,aside,.pill{display:none!important}body{background:#fff}main{border:none;padding:0}h2{page-break-after:avoid}.card,.callout{break-inside:avoid}a::after{content:" (" attr(href) ")";font-size:12px}}
+
+    /* ——— Boas-Vindas (substitui a Introdução) ——— */
+.intro-welcome h2{
+  color:#f97316; /* laranja do tema */
+  font-weight:800;
+  margin-top:0.5rem;
+}
+.intro-welcome .dash{
+  height:4px;border-bottom:3px dotted #f97316;width:180px;margin:.25rem 0 1.25rem;
+}
+.intro-grid{
+  display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:start;margin:.5rem 0 1rem;
+}
+.intro-grid img{
+  width:100%;height:auto;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.08)
+}
+.intro-card{
+  background:#fffdfa;border:1px solid #ffe3c6;border-radius:14px;padding:16px 18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.05)
+}
+.intro-card h3{margin:.2rem 0 .5rem;font-size:1.1rem}
+.intro-card p{margin:.45rem 0}
+
+.triangle{width:0;height:0;border-left:18px solid #f97316;border-top:12px solid transparent;border-bottom:12px solid transparent;margin:.4rem 0 1rem}
+
+.board{position:relative;margin:18px 0}
+.board img{width:100%;max-width:680px;border-radius:14px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.board .balloon{
+  position:absolute;right:6%;top:6%;max-width:min(360px,70%);
+  background:#fff;border:3px solid #111;border-radius:20px;padding:12px 14px;font-weight:700;
+  box-shadow:0 6px 18px rgba(0,0,0,.08)
+}
+.board .balloon::after{
+  content:"";position:absolute;bottom:-18px;right:14%;width:0;height:0;
+  border-width:18px 16px 0 16px;border-style:solid;border-color:#111 transparent transparent transparent
+}
+.board .balloon::before{
+  content:"";position:absolute;bottom:-14px;right:14%;width:0;height:0;
+  border-width:16px 14px 0 14px;border-style:solid;border-color:#fff transparent transparent transparent
+}
+
+@media (max-width:900px){
+  .intro-grid{grid-template-columns:1fr;gap:14px}
+  .intro-grid img{max-width:180px}
+  .board .balloon{right:5%;top:5%}
+}
+
   </style>
 </head>
 <body>
@@ -45,7 +92,37 @@
       </nav>
     </aside>
     <main id="conteudo" role="main">
-      <section id="introducao"><h2>Introdução</h2><p>Versão web navegável do material <em>Jornada do Cidadão</em>.</p></section>
+      <section id="introducao" class="intro-welcome" aria-label="Boas-vindas">
+  <h2>Boas Vindas!</h2>
+  <div class="dash" aria-hidden="true"></div>
+
+  <div class="intro-grid">
+    <img src="./assets/euguia.jpg" alt="Rapaz segurando o guia Jornada do Cidadão">
+    <div class="intro-card" role="region" aria-label="Mensagem de boas-vindas">
+      <h3>Olá!</h3>
+      <p>Se você está lendo este <strong>guia</strong>, é porque você tem interesse em saber um pouco mais de como funciona o trabalho no <strong>Descomplica Digital</strong>!</p>
+      <p>Nas próximas páginas, vamos descrever todas as etapas do atendimento, explicando o caminho do cidadão no Descomplica, do seu agendamento até a finalização!</p>
+    </div>
+  </div>
+
+  <h3 style="color:#0ea5e9;margin-top:1.25rem">Por que um Guia?</h3>
+  <div class="triangle" aria-hidden="true"></div>
+  <p>A elaboração de um guia é um esforço para que haja <strong>padronização</strong> e, assim, o cidadão receba um
+    <strong>atendimento de alta qualidade</strong> em qualquer unidade do Descomplica SP.</p>
+  <p class="muted">O guia também é importante pois fornece uma referência técnica para aquilo que é esperado do atendente no dia a dia.</p>
+
+  <div class="board" aria-label="Aviso importante">
+    <img src="./assets/gigiquadro.jpg" alt="Quadro com atendente ao lado">
+    <div class="balloon">
+      Este guia não substitui o <em>senso crítico</em> do atendente.<br>
+      Nada de robotização!
+    </div>
+  </div>
+</section>
+      
+      
+      
+      
       <section id="principios"><h2>Princípios de Atendimento</h2><p>Visão integral, linguagem clara, acolhimento, orientação até a solução, transparência, inclusão e acessibilidade.</p></section>
       <section id="fluxo"><h2>Fluxo da Jornada (Resumo)</h2><div class="grid cols-2"><div class="card"><h3>Antes do guichê</h3><ul><li>Acolhimento</li><li>Triagem rápida (≤30s)</li><li>Orientações iniciais</li></ul></div><div class="card"><h3>No guichê</h3><ul><li>Atendimento</li><li>Pós-atendimento</li></ul></div></div></section>
       <section id="etapa-acolhimento"><h2>1) Acolhimento</h2><p>Recepção cordial e encaminhamento.</p></section>
