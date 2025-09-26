@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jornada do Cidadão – Descomplica SP</title>
+  <meta name="description" content="Versão web navegável do documento Jornada do Cidadão – Descomplica SP." />
+  <link rel="stylesheet" href="./assets/tema-descomplica.css">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --bg:#f5f7fb; --paper:#fff; --ink:#0f172a; --ink-soft:#334155; --brand:#0ea5e9; --accent:#f97316; --muted:#e5e7eb; --focus:#22c55e; }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .skip-link{position:absolute;left:-9999px;top:0;background:#000;color:#fff;padding:8px 12px;border-radius:8px}.skip-link:focus{left:12px;top:12px;z-index:1000}
+    .shell{display:grid;grid-template-columns:300px 1fr;gap:24px;max-width:1200px;margin:0 auto;padding:24px}
+    aside{position:sticky;top:16px;height:fit-content;background:#fff;border:1px solid var(--muted);border-radius:16px;padding:16px}
+    main{background:#fff;border:1px solid var(--muted);border-radius:16px;padding:16px}
+    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--muted);position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px)}
+    .brand{display:flex;align-items:center;gap:14px}
+    .pill{display:inline-block;font-size:12px;border:1px solid var(--muted);padding:4px 8px;border-radius:999px;background:#f8fafc}
+    h2{font-size:clamp(1.4rem,1.1rem + 1.2vw,2rem);margin:1.2em 0 .4em;scroll-margin-top:88px} h3{font-size:clamp(1.05rem,.95rem + .6vw,1.35rem);margin:1.2em 0 .4em} p{margin:.6em 0}
+    .card{border:1px solid var(--muted);border-radius:14px;padding:16px;background:#fff}.grid{display:grid;gap:16px}.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .callout{border-left:6px solid var(--brand);background:#f0f9ff;padding:12px 14px;border-radius:12px;margin:12px 0}.warn{border-left-color:#f59e0b;background:#fffbeb}.ok{border-left-color:#10b981;background:#ecfdf5}
+    @media(max-width:900px){.shell{grid-template-columns:1fr}aside{position:relative}}
+    @media print{header.site,aside,.pill{display:none!important}body{background:#fff}main{border:none;padding:0}h2{page-break-after:avoid}.card,.callout{break-inside:avoid}a::after{content:" (" attr(href) ")";font-size:12px}}
+  </style>
+</head>
+<body>
+  <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+  <header class="site">
+    <div class="brand" aria-label="Identidade">
+      <img class="brasao" src="./assets/brasao-sp.svg" alt="Brasão da Cidade de São Paulo" style="width:44px;height:44px;border-radius:10px;border:1px solid #e5e7eb;background:#fff;object-fit:contain"/>
+      <img src="./assets/logo-descomplica.svg" alt="Descomplica SP" style="height:44px;width:auto;display:block"/>
+      <h1>Jornada do Cidadão<small style="display:block;color:#334155;font-weight:500">Programa Descomplica SP • Versão web</small></h1>
+    </div>
+    <div><a href="#topo" class="pill">Topo</a></div>
+  </header>
+  <div class="shell" id="topo">
+    <aside>
+      <nav class="toc" aria-label="Sumário">
+        <h2>Sumário</h2>
+        <div class="search"><input id="q" type="search" placeholder="Buscar… (título e texto)" aria-label="Buscar no conteúdo"/></div>
+        <ol class="toc-list"></ol>
+      </nav>
+    </aside>
+    <main id="conteudo" role="main">
+      <section id="introducao"><h2>Introdução</h2><p>Versão web navegável do material <em>Jornada do Cidadão</em>.</p></section>
+      <section id="principios"><h2>Princípios de Atendimento</h2><p>Visão integral, linguagem clara, acolhimento, orientação até a solução, transparência, inclusão e acessibilidade.</p></section>
+      <section id="fluxo"><h2>Fluxo da Jornada (Resumo)</h2><div class="grid cols-2"><div class="card"><h3>Antes do guichê</h3><ul><li>Acolhimento</li><li>Triagem rápida (≤30s)</li><li>Orientações iniciais</li></ul></div><div class="card"><h3>No guichê</h3><ul><li>Atendimento</li><li>Pós-atendimento</li></ul></div></div></section>
+      <section id="etapa-acolhimento"><h2>1) Acolhimento</h2><p>Recepção cordial e encaminhamento.</p></section>
+      <section id="etapa-triagem"><h2>2) Triagem rápida (≤30s)</h2><p>Checagem objetiva de pré-requisitos e documentos.</p></section>
+      <section id="etapa-orientacao"><h2>3) Orientações iniciais</h2><p>Tempo de espera, TV de chamada, senha e docs.</p></section>
+      <section id="etapa-atendimento"><h2>4) Atendimento</h2><p>Execução do serviço e identificação de necessidades não declaradas.</p></section>
+      <section id="etapa-pos"><h2>5) Pós-atendimento e avaliação</h2><p>Próximos passos, prazos e avaliação voluntária.</p></section>
+      <section id="lgpd"><h2>LGPD e Privacidade</h2><p>Finalidade, adequação, necessidade, transparência, segurança e responsabilização.</p></section>
+      <section id="canais-digitais"><h2>Canais Digitais</h2><p>Integração com Descomplica Digital, SP156 e gov.br.</p></section>
+      <section id="creditos"><h2>Créditos e Versão</h2><p>Rascunho inicial para adaptação fiel do conteúdo integral.</p></section>
+    </main>
+  </div>
+  <script>
+    const tocList=document.querySelector('.toc-list');
+    const headings=[...document.querySelectorAll('main h2')];
+    const makeId=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+    headings.forEach(h=>{ if(!h.id){h.id=makeId(h.textContent)}; const li=document.createElement('li'); const a=document.createElement('a'); a.href='#'+h.id; a.textContent=h.textContent; li.appendChild(a); tocList.appendChild(li); });
+    const links=[...document.querySelectorAll('nav.toc a')];
+    const byId=Object.fromEntries(links.map(a=>[a.getAttribute('href').slice(1),a]));
+    const sections=[...document.querySelectorAll('main section')];
+    const obs=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=byId[e.target.id]; if(a) a.classList.add('active'); } }); },{rootMargin:'-40% 0px -55% 0px',threshold:0.01});
+    sections.forEach(s=>obs.observe(s));
+    const q=document.getElementById('q'); q?.addEventListener('input',()=>{ const term=q.value.trim().toLowerCase(); sections.forEach(sec=>{ const text=sec.innerText.toLowerCase(); sec.style.display=term && !text.includes(term)?'none':''; }); });
+  </script>
+</body>
+</html>
