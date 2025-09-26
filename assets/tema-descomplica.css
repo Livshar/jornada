@@ -181,3 +181,41 @@ p{ margin:.6em 0 }
   h2{ page-break-after:avoid }
   a::after{ content:" (" attr(href) ")"; font-size:12px }
 }
+
+
+/* ===========================
+   Seção: Agendamento
+   =========================== */
+.section-dash{height:4px;border-bottom:3px dotted var(--ink-soft);width:200px;margin:.25rem 0 1rem}
+
+.agendamento-head{
+  display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start;
+}
+.agendamento-head img{
+  width:100%;height:auto;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.08)
+}
+
+.callout{border-left:6px solid var(--brand);background:#f0f9ff;padding:12px 14px;border-radius:12px;margin:12px 0}
+.callout small{display:block;color:var(--ink-soft)}
+.callout.warn{border-left-color:#f59e0b;background:#fffbeb}
+
+.subtitle-accent{
+  margin:1.2rem 0 .6rem;
+  font-size:clamp(1.1rem,1rem + .7vw,1.5rem);
+  color:var(--accent);font-weight:800;
+}
+
+.method{
+  display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:flex-start;
+  background:#fff;border:1px solid var(--muted);border-radius:14px;padding:12px 14px;margin:.8rem 0;
+}
+.method img{width:72px;height:72px;object-fit:cover;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.method h3{margin:.1rem 0 .3rem;font-size:1.1rem;color:#166534}   /* verde do “Telefone” */
+.method.internet h3{color:#1d4ed8}                                  /* azul do “Internet” */
+.method ul{margin:.25rem 0 .2rem 1.1rem}
+
+.note-ticket{
+  display:flex;gap:14px;align-items:flex-start;
+  background:#fff;border:1px dashed var(--muted);border-radius:14px;padding:12px 14px;margin:1rem 0;
+}
+.note-ticket img{width:90px;height:auto;border-radius:10px}
