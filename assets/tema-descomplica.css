@@ -219,6 +219,87 @@ p{ margin:.6em 0 }
 .note-ticket img{width:90px;height:auto;border-radius:10px}
 
 /* ===========================
+   Agendamento – Problemas & Soluções
+   =========================== */
+#agendamento-problemas .section-dash{border-bottom-color:var(--accent)}
+
+.problems{
+  display:grid;
+  gap:14px;
+  margin-top:.75rem;
+}
+
+/* Cartões */
+.problem-card{
+  background:#fff;
+  border:1px solid var(--muted);
+  border-radius:14px;
+  padding:14px 16px;
+  display:grid;
+  grid-template-columns: 120px 1fr;  /* img | texto */
+  align-items:center;
+  gap:14px;
+}
+.problem-card img{
+  width:120px; height:auto;
+  border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+/* Variante com imagem à direita */
+.problem-card.right{
+  grid-template-columns: 1fr 120px;  /* texto | img */
+}
+.problem-card.right .pict{ order:2 }
+.problem-card.right .text{ order:1 }
+
+.problem-title{
+  color:var(--accent);
+  font-weight:800;
+  margin:0 0 .35rem;
+}
+.problem-text{ margin:0 }
+
+/* Dicas (linha verde à esquerda) */
+.tip{
+  border-left:4px solid #10b981;
+  padding-left:.6rem; margin-top:.45rem;
+}
+
+/* Empatia: balão + personagem */
+.empathy{
+  position:relative; margin:1rem 0 .3rem;
+  display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap;
+}
+.empathy .bubble{
+  position:relative; background:#fff;
+  border:3px solid #111; border-radius:20px;
+  padding:12px 16px; font-weight:700; max-width:420px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.empathy .bubble::after{
+  content:""; position:absolute; bottom:-18px; left:18%;
+  border-width:18px 16px 0 16px; border-style:solid;
+  border-color:#111 transparent transparent transparent;
+}
+.empathy .bubble::before{
+  content:""; position:absolute; bottom:-14px; left:18%;
+  border-width:16px 14px 0 14px; border-style:solid;
+  border-color:#fff transparent transparent transparent;
+}
+.empathy img{
+  width:140px; height:auto; border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+@media (max-width:700px){
+  .problem-card{ grid-template-columns:96px 1fr }
+  .problem-card.right{ grid-template-columns:1fr 96px }
+  .problem-card img{ width:96px }
+  .empathy img{ width:120px }
+}
+
+
+/* ===========================
    Responsivo & impressão
    =========================== */
 
