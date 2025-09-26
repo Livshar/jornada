@@ -266,20 +266,19 @@ p{ margin:.6em 0 }
 }
 
 /* Empatia: personagem */
-.empathy{
-  position:relative;
-  margin:1rem 0 .3rem;
-  display:flex;
-  gap:16px;
-  align-items:flex-end;
-  flex-wrap:wrap;
+#agendamento-problemas .empathy{
+  justify-content: center;   /* centraliza no eixo horizontal */
+  align-items: center;       /* centraliza no eixo vertical */
+  gap: 0;                    /* sem espaço sobrando */
 }
 
-.empathy img{
-  width:280px;
-  height:auto;
-  border-radius:14px;
-  box-shadow:0 6px 18px rgba(0,0,0,.06);
+#agendamento-problemas .empathy img{
+  display: block;
+  width: clamp(260px, 45vw, 480px);  /* cresce até 480px, responsivo */
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  margin: 0 auto;                    /* garante centralizado */
 }
 
 @media (max-width:700px){
