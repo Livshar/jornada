@@ -13,54 +13,44 @@
     body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
     a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
     .skip-link{position:absolute;left:-9999px;top:0;background:#000;color:#fff;padding:8px 12px;border-radius:8px}.skip-link:focus{left:12px;top:12px;z-index:1000}
+
     .shell{display:grid;grid-template-columns:300px 1fr;gap:24px;max-width:1200px;margin:0 auto;padding:24px}
     aside{position:sticky;top:16px;height:fit-content;background:#fff;border:1px solid var(--muted);border-radius:16px;padding:16px}
     main{background:#fff;border:1px solid var(--muted);border-radius:16px;padding:16px}
-    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--muted);position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px)}
-    .brand{display:flex;align-items:center;gap:14px}
-    .pill{display:inline-block;font-size:12px;border:1px solid var(--muted);padding:4px 8px;border-radius:999px;background:#f8fafc}
-    h2{font-size:clamp(1.4rem,1.1rem + 1.2vw,2rem);margin:1.2em 0 .4em;scroll-margin-top:88px}
-    h3{font-size:clamp(1.05rem,.95rem + .6vw,1.35rem);margin:1.2em 0 .4em}
-    p{margin:.6em 0}
-    .card{border:1px solid var(--muted);border-radius:14px;padding:16px;background:#fff}
-    .grid{display:grid;gap:16px}
-    .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .callout{border-left:6px solid var(--brand);background:#f0f9ff;padding:12px 14px;border-radius:12px;margin:12px 0}
-    .warn{border-left-color:#f59e0b;background:#fffbeb}
-    .ok{border-left-color:#10b981;background:#ecfdf5}
-    @media(max-width:900px){.shell{grid-template-columns:1fr}aside{position:relative}}
-    @media print{header.site,aside,.pill{display:none!important}body{background:#fff}main{border:none;padding:0}h2{page-break-after:avoid}.card,.callout{break-inside:avoid}a::after{content:" (" attr(href) ")";font-size:12px}}
 
-    .muted { color: var(--ink-soft); }
+    /* HEADER centralizado */
+    header.site{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--muted);
+      padding:16px 24px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;   /* esquerda | centro | direita */
+      align-items:center;
+      gap:16px;
+    }
+    header.site .brand{
+      grid-column:2;              /* coloca no centro */
+      justify-self:center;
+      display:flex; align-items:center; gap:14px;
+      text-align:center;
+    }
+    header.site .brand img{height:44px;width:auto;display:block}
+    header.site .brand h3{margin:0}
+    header.site .actions{grid-column:3; justify-self:end}
 
-    /* ——— Config. do Menu Lateral ——— */
-    .toc-list{
-    list-style: none;   
-    padding-left: 0;   
-    margin: 0;
-    }
-.toc-list li{ margin:.35rem 0; }
-    
+    /* Menu lateral sem números */
+    .toc-list{list-style:none;padding-left:0;margin:0}
+    .toc-list li{margin:.35rem 0}
 
-    /* ——— Boas-Vindas ——— */
-    .intro-welcome h2{
-      color:#f97316; /* laranja do tema */
-      font-weight:800;
-      margin-top:0.5rem;
-    }
-    .intro-welcome .dash{
-      height:4px;border-bottom:3px dotted #f97316;width:180px;margin:.25rem 0 1.25rem;
-    }
-    .intro-grid{
-      display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:start;margin:.5rem 0 1rem;
-    }
-    .intro-grid img{
-      width:100%;height:auto;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.08)
-    }
-    .intro-card{
-      background:#fffdfa;border:1px solid #ffe3c6;border-radius:14px;padding:16px 18px;
-      box-shadow:0 8px 20px rgba(0,0,0,.05)
-    }
+    .muted{color:var(--ink-soft)}
+
+    /* Boas-vindas */
+    .intro-welcome h2{color:#f97316;font-weight:800;margin-top:.5rem}
+    .intro-welcome .dash{height:4px;border-bottom:3px dotted #f97316;width:180px;margin:.25rem 0 1.25rem}
+    .intro-grid{display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:start;margin:.5rem 0 1rem}
+    .intro-grid img{width:100%;height:auto;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+    .intro-card{background:#fffdfa;border:1px solid #ffe3c6;border-radius:14px;padding:16px 18px;box-shadow:0 8px 20px rgba(0,0,0,.05)}
     .intro-card h3{margin:.2rem 0 .5rem;font-size:1.1rem}
     .intro-card p{margin:.45rem 0}
 
@@ -69,82 +59,45 @@
 
     /* Título “Por que um Guia?” com triângulo na mesma linha */
     .with-triangle{
-      color:#0ea5e9;
-      margin:1rem 0 .25rem;
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
+      color:#0ea5e9;margin:1rem 0 .25rem;
+      display:inline-flex;align-items:center;gap:.5rem;
     }
     .with-triangle::before{
-      content:"";
-      width:0;height:0;
-      border-left:18px solid var(--accent);   /* laranja */
-      border-top:12px solid transparent;
-      border-bottom:12px solid transparent;
+      content:"";width:0;height:0;
+      border-left:18px solid var(--accent);
+      border-top:12px solid transparent;border-bottom:12px solid transparent;
     }
 
-    @media (max-width:900px){
+    /* Botão maior */
+    header.site .pill{font-size:clamp(.95rem,.85rem + .4vw,1.05rem);padding:.55rem 1rem;font-weight:600;border-radius:999px;line-height:1}
+
+    @media(max-width:900px){
+      .shell{grid-template-columns:1fr} aside{position:relative}
       .intro-grid{grid-template-columns:1fr;gap:14px}
       .intro-grid img{max-width:180px}
+      header.site{grid-template-columns:1fr auto;row-gap:8px}
+      header.site .brand{grid-column:1 / -1;justify-self:center}
+      header.site .actions{grid-column:2;grid-row:2;justify-self:end}
     }
-
-    /* Deixa o botão "Topo" maior e mais confortável */
-     header.site .pill{
-       font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.05rem);
-       padding: .55rem 1rem;        /* altura/largura do botão */
-       font-weight: 600;
-       border-radius: 999px;        /* mantém formato pílula */
-       line-height: 1;              /* evita esticar demais */
+    @media print{
+      header.site,aside,.pill{display:none!important}
+      body{background:#fff}main{border:none;padding:0}
+      h2{page-break-after:avoid}
+      a::after{content:" (" attr(href) ")";font-size:12px}
     }
-
-    /* Centraliza o bloco .brand no header e mantém o botão à direita */
-    header.site{
-      display: grid;
-      grid-template-columns: 1fr auto 1fr; /* esquerda | brand (centro) | direita */
-      align-items: center;
-    }
-
-    header.site .brand{
-      justify-self: center;   /* fica exatamente no centro da página */
-    }
-
-    header.site > div:last-child{
-      justify-self: end;      /* o botão "Topo" continua à direita */
-    }
-
-    /* Opcional: deixa o texto do título centralizado dentro do bloco */
-    header.site .brand h1{
-      margin: 0;
-      text-align: center;
-    }
-
-    /* Responsivo: em telas menores, evita apertar tudo */
-    @media (max-width: 700px){
-      header.site{
-        grid-template-columns: 1fr auto;
-        row-gap: 8px;
-      }
-      header.site .brand{
-        grid-column: 1 / -1;   /* ocupa a largura toda */
-        justify-self: center;
-      }
-      header.site > div:last-child{
-        grid-row: 2;           /* botão vai para a linha de baixo, à direita */
-        justify-self: end;
-      }
-    }
-
-
   </style>
 </head>
 <body>
   <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
   <header class="site">
     <div class="brand" aria-label="Identidade">
-      <img src="./assets/logo-descomplica.jpg" alt="Descomplica SP" style="height:44px;width:auto;display:block"/>
-      <center><h3>Jornada do Cidadão<small style="display:block;color:#334155;font-weight:500">Um Guia Descomplicado • Versão web</small></h3></center>
+      <img src="./assets/logo-descomplica.jpg" alt="Descomplica SP">
+      <h3>Jornada do Cidadão
+        <small style="display:block;color:#334155;font-weight:500">Um Guia Descomplicado • Versão web</small>
+      </h3>
     </div>
-    <div><a href="#topo" class="pill">Início</a></div>
+    <div class="actions"><a href="#topo" class="pill">Início</a></div>
   </header>
 
   <div class="shell" id="topo">
@@ -155,8 +108,6 @@
         <ol class="toc-list"></ol>
       </nav>
     </aside>
-
-    
 
     <main id="conteudo" role="main">
       <section id="introducao" class="intro-welcome" aria-label="Boas-vindas">
