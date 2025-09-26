@@ -87,6 +87,16 @@
       .intro-grid{grid-template-columns:1fr;gap:14px}
       .intro-grid img{max-width:180px}
     }
+
+    /* Deixa o botão "Topo" maior e mais confortável */
+     header.site .pill{
+       font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.05rem);
+       padding: .55rem 1rem;        /* altura/largura do botão */
+       font-weight: 600;
+       border-radius: 999px;        /* mantém formato pílula */
+       line-height: 1;              /* evita esticar demais */
+    }
+
   </style>
 </head>
 <body>
@@ -107,6 +117,8 @@
         <ol class="toc-list"></ol>
       </nav>
     </aside>
+
+    
 
     <main id="conteudo" role="main">
       <section id="introducao" class="intro-welcome" aria-label="Boas-vindas">
