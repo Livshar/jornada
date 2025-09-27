@@ -233,73 +233,81 @@ p{ margin:.6em 0 }
 .note-ticket img{width:90px;height:auto;border-radius:10px}
 
 /* ===========================
-   Agendamento – Problemas & Soluções
+   Agendamento – Problemas & Soluções (isolado)
    =========================== */
-#agendamento-problemas .section-dash{border-bottom-color:var(--accent)}
+#agendamento-problemas .section-dash{ border-bottom-color:var(--accent) }
 
-.problems{
+#agendamento-problemas .problems{
   display:grid;
   gap:14px;
   margin-top:.75rem;
 }
 
-/* Cartões */
-.problem-card{
+/* Card base (grid) */
+#agendamento-problemas .problem-card{
   background:#fff;
   border:1px solid var(--muted);
   border-radius:14px;
   padding:14px 16px;
+
   display:grid;
-  grid-template-columns: 120px 1fr;  /* img | texto */
+  grid-template-columns:120px 1fr;   /* imagem | texto (padrão: esquerda) */
   align-items:center;
   gap:14px;
 }
-.problem-card img{
-  width:120px; height:auto;
-  border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.06);
+
+/* Imagem do card (somente aqui) */
+#agendamento-problemas .problem-card .pict img{
+  width:120px;
+  height:auto;
+  display:block;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
 }
 
-/* Variante com imagem à direita */
-.problem-card.right{
-  grid-template-columns: 1fr 120px;  /* texto | img */
+/* Alternância automática: nos cards PARES a imagem vai para a direita */
+#agendamento-problemas .problem-card:nth-of-type(even){
+  grid-template-columns:1fr 120px;   /* texto | imagem */
 }
-.problem-card.right .pict{ order:2 }
-.problem-card.right .text{ order:1 }
+#agendamento-problemas .problem-card:nth-of-type(even) .pict{ order:2; }
+#agendamento-problemas .problem-card:nth-of-type(even) .text{ order:1; }
 
-.problem-title{
+/* Títulos e textos dos cards (apenas nesta seção) */
+#agendamento-problemas .problem-title{
   color:var(--accent);
   font-weight:800;
   margin:0 0 .35rem;
 }
-.problem-text{ margin:0 }
+#agendamento-problemas .problem-text{ margin:0 }
 
-/* Dicas (linha verde à esquerda) */
-.tip{
+/* Dica (linha verde) */
+#agendamento-problemas .tip{
   border-left:4px solid #10b981;
-  padding-left:.6rem; margin-top:.45rem;
+  padding-left:.6rem;
+  margin-top:.45rem;
 }
 
-/* Empatia: personagem */
+/* Empatia */
 #agendamento-problemas .empathy{
-  justify-content: center;   /* centraliza no eixo horizontal */
-  align-items: center;       /* centraliza no eixo vertical */
-  gap: 0;                    /* sem espaço sobrando */
+  justify-content:center;
+  align-items:center;
+  gap:0;
 }
-
 #agendamento-problemas .empathy img{
-  display: block;
-  width: clamp(220px, 45vw, 380px);  /* cresce até 380px, responsivo */
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  margin: 0 auto;                    /* garante centralizado */
+  display:block;
+  width:clamp(220px,45vw,380px);
+  height:auto;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  margin:0 auto;
 }
 
+/* Responsivo dos cards desta seção */
 @media (max-width:700px){
-  .problem-card{ grid-template-columns:96px 1fr }
-  .problem-card.right{ grid-template-columns:1fr 96px }
-  .problem-card img{ width:96px }
-  .empathy img{ width:120px }
+  #agendamento-problemas .problem-card{
+    grid-template-columns:96px 1fr;
+  }
+  #agendamento-problemas .problem-card .pict img{ width:96px }
 }
 
 /* ===========================
