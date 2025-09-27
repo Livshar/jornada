@@ -54,32 +54,36 @@ main{
 }
 
 /* ===========================
-   Header (logo à esquerda)
-   =========================== */
-
+   Header (logo à esquerda, título central, ações à direita)
+  =========================== */
 header.site{
-  position:sticky;top:0;z-index:50;
+  position:sticky; top:0; z-index:50;
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--muted);
   padding:16px 24px;
+
   display:grid;
-  grid-template-columns:auto 1fr auto;  /* brand | espaço | actions */
-  align-items:center; gap:16px;
+  grid-template-columns: auto 1fr auto; /* brand | title | actions */
+  align-items:center;
+  gap:16px;
 }
 
-header.site .brand{
-  grid-column:1;
-  justify-self:start;
-  display:flex; align-items:center; gap:14px;
-  text-align:left;
+header.site .brand img{
+  height:44px; width:auto; display:block;
 }
 
-header.site .brand img{ height:44px;width:auto;display:block }
-header.site .brand h3{ margin:0 }
-header.site .actions{ grid-column:3; justify-self:end }
+.site-title{
+  margin:0;
+  text-align:center;          /* centraliza o texto na coluna do meio */
+  font-size:clamp(1.1rem, .9rem + 1.2vw, 1.6rem);
+}
+.site-title small{
+  display:block; color:#334155; font-weight:500;
+}
 
-/* Botão “Topo/Início” */
+/* Botão à direita */
+header.site .actions{ justify-self:end; }
 header.site .pill{
   font-size:clamp(.95rem,.85rem + .4vw,1.05rem);
   padding:.55rem 1rem;
@@ -88,6 +92,13 @@ header.site .pill{
   background:#f8fafc;
   border-radius:999px;
   line-height:1;
+}
+
+/* Responsivo */
+@media (max-width:700px){
+  header.site{ padding:12px 16px; gap:12px; }
+  header.site .brand img{ height:40px; }
+  .site-title{ font-size:clamp(1rem,.9rem + 1vw,1.3rem); }
 }
 
 /* ===========================
