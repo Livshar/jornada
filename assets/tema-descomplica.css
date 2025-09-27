@@ -258,7 +258,7 @@ p{ margin:.6em 0 }
 
 /* Imagem do card (somente aqui) */
 #agendamento-problemas .problem-card .pict img{
-  width:120px;
+  width:240px;
   height:auto;
   display:block;
   border-radius:12px;
