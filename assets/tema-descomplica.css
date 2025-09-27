@@ -195,12 +195,8 @@ p{ margin:.6em 0 }
 }
 
 /* Título e linha do Agendamento em laranja */
-#agendamento > h2{
-  color: var(--accent);
-}
-#agendamento .section-dash{
-  border-bottom-color: var(--accent);
-}
+#agendamento > h2{ color: var(--accent); }
+#agendamento .section-dash{ border-bottom-color: var(--accent); }
 
 /* Cards de método (Telefone / Internet) — Ícone maior e sem compressão */
 .method{
@@ -235,6 +231,11 @@ p{ margin:.6em 0 }
 /* ===========================
    Agendamento – Problemas & Soluções (isolado)
    =========================== */
+#agendamento-problemas{
+  /* controla o tamanho das imagens dos cards */
+  --problem-img: 240px;        /* desktop (ajuste aqui) */
+}
+
 #agendamento-problemas .section-dash{ border-bottom-color:var(--accent) }
 
 #agendamento-problemas .problems{
@@ -251,14 +252,17 @@ p{ margin:.6em 0 }
   padding:14px 16px;
 
   display:grid;
-  grid-template-columns:120px 1fr;   /* imagem | texto (padrão: esquerda) */
+  grid-template-columns: var(--problem-img) 1fr;  /* imagem | texto */
   align-items:center;
   gap:14px;
 }
 
-/* Imagem do card (somente aqui) */
+/* Imagem do card (encaixa na coluna) */
+#agendamento-problemas .problem-card .pict{
+  width: var(--problem-img);
+}
 #agendamento-problemas .problem-card .pict img{
-  width:240px;
+  width:100%;
   height:auto;
   display:block;
   border-radius:12px;
@@ -267,7 +271,7 @@ p{ margin:.6em 0 }
 
 /* Alternância automática: nos cards PARES a imagem vai para a direita */
 #agendamento-problemas .problem-card:nth-of-type(even){
-  grid-template-columns:1fr 120px;   /* texto | imagem */
+  grid-template-columns: 1fr var(--problem-img);   /* texto | imagem */
 }
 #agendamento-problemas .problem-card:nth-of-type(even) .pict{ order:2; }
 #agendamento-problemas .problem-card:nth-of-type(even) .text{ order:1; }
@@ -302,14 +306,6 @@ p{ margin:.6em 0 }
   margin:0 auto;
 }
 
-/* Responsivo dos cards desta seção */
-@media (max-width:700px){
-  #agendamento-problemas .problem-card{
-    grid-template-columns:96px 1fr;
-  }
-  #agendamento-problemas .problem-card .pict img{ width:96px }
-}
-
 /* ===========================
    Responsivo & impressão
    =========================== */
@@ -334,8 +330,18 @@ p{ margin:.6em 0 }
   header.site .actions{
     grid-column:2; grid-row:1; justify-self:end;
   }
+
   .method{ grid-template-columns:96px 1fr; padding:14px 16px }
   .method img{ width:96px; height:96px }
+
+  /* Problemas & Soluções: imagens menores no mobile */
+  #agendamento-problemas{ --problem-img: 96px; }
+  #agendamento-problemas .problem-card{
+    grid-template-columns: var(--problem-img) 1fr;
+  }
+  #agendamento-problemas .problem-card:nth-of-type(even){
+    grid-template-columns: 1fr var(--problem-img);
+  }
 }
 
 @media print{
